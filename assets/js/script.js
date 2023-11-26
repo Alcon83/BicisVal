@@ -1,11 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     const main = document.querySelector('main');
-    const links = document.querySelectorAll('.navigation-items a');
-    const currentPath = window.location.pathname.split('/').pop();
     const menuBtn = document.querySelector('.menu-btn');
     const navigation = document.querySelector('.navigation');
-
 
     // Función para cargar el contenido
     function loadContent(url) {
@@ -24,23 +20,33 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    // Evento delegado para manejar clics en 'main'
+    main.addEventListener('click', (event) => {
+        let target = event.target.closest('a');
+        if (target && (target.getAttribute('href').startsWith('pages/') || target.getAttribute('href') === 'index.html')) {
+            event.preventDefault();
+            loadContent(target.getAttribute('href'));
+        }
+    });
+
+    // Eventos para enlaces en la cabecera y el pie de página
+    document.querySelectorAll('.navigation-items a, .footer-links a').forEach(link => {
+        link.addEventListener('click', (event) => {
+            let href = link.getAttribute('href');
+            if (href.startsWith('pages/') || href === 'index.html') {
+                event.preventDefault();
+                loadContent(href);
+            }
+        });
+    });
+
     menuBtn.addEventListener('click', () => {
         menuBtn.classList.toggle('active');
         navigation.classList.toggle('active');
     });
 
-    // Añadir el active a los links para que quede la linea marcada
-
-    links.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault(); // Evita la navegación predeterminada
-            const href = link.getAttribute('href');
-            loadContent(href);
-        });
-    });
-    // Cargar el contenido de home.html si main está vacío
+    // Cargar el contenido inicial si es necesario
     if (!main.innerHTML.trim()) {
         loadContent('pages/home.html');
-        document.querySelector('.navigation-items a[href="home.html"]').classList.add('active');
     }
 });
