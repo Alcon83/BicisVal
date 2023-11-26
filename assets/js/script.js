@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const main = document.querySelector('main');
     const menuBtn = document.querySelector('.menu-btn');
     const navigation = document.querySelector('.navigation');
+    const links = document.querySelectorAll('.navigation-items a, .footer-links a');
 
     // Función para cargar el contenido
     function loadContent(url) {
@@ -14,10 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(html => {
                 main.innerHTML = html;
+                updateActiveLink(url);
             })
             .catch(error => {
                 console.error('Error loading content', error);
             });
+    }
+
+    // Actualizar la clase 'active' en el enlace
+    function updateActiveLink(activeUrl) {
+        links.forEach(link => {
+            if (link.getAttribute('href') === activeUrl) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
     }
 
     // Evento delegado para manejar clics en 'main'
@@ -30,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Eventos para enlaces en la cabecera y el pie de página
-    document.querySelectorAll('.navigation-items a, .footer-links a').forEach(link => {
+    links.forEach(link => {
         link.addEventListener('click', (event) => {
             let href = link.getAttribute('href');
             if (href.startsWith('pages/') || href === 'index.html') {
