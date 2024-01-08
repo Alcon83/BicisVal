@@ -63,3 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
         loadContent('pages/home.html');
     }
 });
+
+
+document.getElementById('toggleTheme').addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+});
+
