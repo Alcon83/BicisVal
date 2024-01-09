@@ -2,18 +2,20 @@
 
 
 /* He añadido los estilos de loc colores como variables, asi es más sencillo hacer modificaciones */
-:root {
-    --color-backgroundGray: #efeded; 
-    --color-text: #333;         
-    --color-primary: #f5cd1d;    
-    --color-secondary: #...;    
+:root { 
+    --color-background: #ffffff;  
+    --color-text: #202124;         
+    --color-primary: #202124;    
+    --color-secondary: #f1f3f4;  
+    --color-tertiary: #ffaa01;
 }
 
 .dark-mode {
-    --color-background: #333;   
-    --color-text: #fff;         
-    --color-primary: #f5cd1d;   
-    --color-secondary: #...;    
+    --color-background: #202124;   
+    --color-text: #ffffff;          
+    --color-primary: #bdc1c6;  
+    --color-secondary: #303134;
+    --color-tertiary: #f5cd1d;
 }
 
 
@@ -103,9 +105,9 @@ header .navigation {
     & a:before {
         content: "";
         position: absolute;
-        background: var(--color-primary);
+        background: var(--color-tertiary);
         width: 0%;
-        height: 2px;
+        height: 3px;
         bottom: 0;
         left: 0;
         transition: 0.3s ease;
@@ -227,12 +229,12 @@ hr {
         align-items: center;
         text-align: center;
         min-height: 300px;
-        background: var(--color-backgroundGray);
-        border: 1px solid #ccc;
+        background: var( --color-secondary);
+       
         border-radius: 5px;
         padding: 20px;
         box-sizing: border-box;
-        color: #333;
+        color: var( --color-tertiary);
         transition: 0.3s ease;
 
         & i {
@@ -243,7 +245,7 @@ hr {
         }
 
         & p {
-            color: #666;
+            color: var(--color-primary);
         }
     }
 
@@ -309,11 +311,11 @@ hr {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        background-color: var(--color-backgroundGray);
+        background-color: var(--color-secondary);
         border-radius: 10px;
-        padding: 20px;
+        padding: 10px;
         box-sizing: border-box;
-        color: #333;
+        color: var(--color-primary);
         transition: 0.3s ease;
 
         & i {
@@ -324,20 +326,20 @@ hr {
         }
 
         & p {
-            color: #666;
+            color: var(--color-primary);
         }
 
         & img {
             border-radius: 10px;
-            width: 250px;
-            height: 200px;
+            width: 300px;
+            height: 250px;
             padding-bottom: 10px;
             object-fit: cover;
 
         }
 
         & button {
-            background-color: var(--color-primary);
+            background-color: var(--color-tertiary);
             padding: 7px 15px;
             color: #333;
 
@@ -368,22 +370,23 @@ table {
     overflow: hidden;
     width: 70%;
     height: 250px;
-    border: 1px solid var(--color-text);
+    border: 1px solid var(--color-secondary);
 
 
 }
 
 th,
 td {
-    border: 1px solid var(--color-text);
+    border: 1px solid var(--color-secondary);
     padding: 4px 8px;
     text-align: center;
 
 }
 
 tr:nth-child(even) {
-    color: var(--color-background);
-    background-color: #f2f2f2;
+    color: var(--color-primary);
+    background-color:  var(--color-secondary);
+    
 }
 
 tr:hover {
@@ -391,8 +394,8 @@ tr:hover {
 }
 
 thead th {
-    background-color: black;
-    color: white;
+    background-color: var(--color-secondary);
+    color:  var(--color-primary);
 }
 
 /* Configuraciones para la sección de taller y formulario de contacto */
@@ -411,11 +414,11 @@ thead th {
 
 
 .contact-form {
-    background-color: var(--color-backgroundGray);
+    background-color: var(--color-secondary);
     padding: 20px;
     margin: 20px 0px 7px 20px;
     border-radius: 15px;
-    color: #333;
+    color: var(--color-primary);
 
     & textarea {
         resize: none;
@@ -430,7 +433,7 @@ thead th {
 .contact-form label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: var(--color-primary);
 }
 
 .contact-form input[type="text"],
@@ -445,8 +448,8 @@ textarea {
 }
 
 .submit-button {
-    background-color: #333;
-    color: white;
+    background-color: var(--color-tertiary);
+    color: #333;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -462,7 +465,7 @@ form label {
     display: block;
     margin-bottom: 8px;
     font-size: 16px;
-    color: #333;
+    color: var(--color-primary);
 }
 
 form select {
@@ -494,7 +497,7 @@ form select {
 }
 
 .submit-button:hover {
-    background-color: #555;
+    background-color: #ebad02;
 }
 
 
@@ -503,7 +506,7 @@ form select {
 .theme-button {
     background-color: var(--color-background); 
     color: var(--color-text);
-    border: 3px solid var(--color-primary); 
+    border: 3px solid var(--color-tertiary); 
     padding: 5px 10px;
     font-size: 16px;
     cursor: pointer;
@@ -513,9 +516,9 @@ form select {
 }
 
 .theme-button:hover {
-    background-color: var(--color-primary);
+    background-color: var(--color-tertiary);
     color: var(--color-background);
-    border-color: var(--color-background);
+    border-color: var(--color-tertiary);
 }
 
 
@@ -523,11 +526,11 @@ form select {
 .dark-mode .theme-button {
     background-color: var(--color-background);
     color: var(--color-text);
-    border-color: var(--color-text);
+    border-color: var(--color-tertiary);
 }
 
 .dark-mode .theme-button:hover {
-    background-color: var(--color-text);
+    background-color: var(--color-tertiary);
     color: var(--color-background);
     border-color: var(--color-background);
 }
