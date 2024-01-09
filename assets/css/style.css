@@ -5,7 +5,7 @@
 :root { 
     --color-background: #ffffff;  
     --color-text: #202124;         
-    --color-primary: #202124;    
+    --color-primary: #333;    
     --color-secondary: #f1f3f4;  
     --color-tertiary: #ffaa01;
 }
@@ -234,7 +234,7 @@ hr {
         border-radius: 5px;
         padding: 20px;
         box-sizing: border-box;
-        color: var( --color-tertiary);
+        color: var( --color-text);
         transition: 0.3s ease;
 
         & i {
